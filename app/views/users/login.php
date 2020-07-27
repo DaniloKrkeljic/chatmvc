@@ -7,7 +7,7 @@
       <form action="<?php echo URLROOT;?>/users/login" method="POST" class="mt-5"> 
         <div class="form-group">
           <label for="username">Username: <sup>*</sup></label>
-          <input type="text" name="username" class="form-control <?php echo (!empty($data['email_err']))?'is-invalid': '';?>" value="<?php echo $data['username'];?>">
+          <input type="text" name="username" class="form-control <?php echo (!empty($data['username_err']))?'is-invalid': '';?>" value="<?php echo $data['username'];?>">
           <span class="invalid-feedback"></span>
         </div>
         <div class="form-group">
