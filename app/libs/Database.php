@@ -47,7 +47,7 @@
         }
       }
 
-      $this->stmt->bindValue($param, $valuse, $type);
+      $this->stmt->bindValue($param, $value, $type);
     }
 
     public function execute(){

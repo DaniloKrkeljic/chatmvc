@@ -4,6 +4,7 @@
   <div class="col-md-5 mx-auto">
     <div class="card card-body bg-light mt-5">
       <h2 class="text-center">Ulogujte se</h2>
+      <?php echo flash('register_success');?>
       <form action="<?php echo URLROOT;?>/users/login" method="POST" class="mt-5"> 
         <div class="form-group">
           <label for="username">Username: <sup>*</sup></label>
@@ -28,4 +29,10 @@
   </div>
 </div>
 
-<?php require APPROOT.'/views/inc/footer.php';?>
+
+
+<?php 
+
+  echo password_hash('user',PASSWORD_DEFAULT);
+
+require APPROOT.'/views/inc/footer.php';?>
