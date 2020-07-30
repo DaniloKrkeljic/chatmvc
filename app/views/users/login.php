@@ -31,8 +31,4 @@
 
 
 
-<?php 
-
-  echo password_hash('user',PASSWORD_DEFAULT);
-
-require APPROOT.'/views/inc/footer.php';?>
+<?php require APPROOT.'/views/inc/footer.php';?>

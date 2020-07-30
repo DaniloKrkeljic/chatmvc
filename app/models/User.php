@@ -9,7 +9,7 @@
 
     public function register($data){
       // $this->db->query("INSERT INTO users (username,password) VALUES (:username,:password);");
-      
+      $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     }
 
     public function login($username, $password){

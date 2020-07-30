@@ -10,7 +10,9 @@
 
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <p>Some text</p>
+      <?php foreach ($data['messages'] as $message) : ?>
+        <p><?php echo '<b>'.ucwords($message->username).'</b> ['.$message->created_at.']:'.$message->text; ?></p>
+      <?php endforeach; ?>
     </div>
   </div>
 

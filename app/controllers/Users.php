@@ -5,12 +5,6 @@
       $this->userModel = $this->model('User');
     }
 
-    public function index(){
-      $data = [];
-
-      $this->view('pages/index');
-    }
-
     public function register(){
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -126,7 +120,7 @@
       $_SESSION['username'] = $user->username;
       $_SESSION['user_id'] = $user->id;
 
-      $this->view('pages/chat');
+      redirect('chats');
     }
 
     public function logout(){
@@ -134,5 +128,6 @@
       unset($_SESSION['user_id']);
 
       session_destroy();
+      redirect('pages');
     }
   }

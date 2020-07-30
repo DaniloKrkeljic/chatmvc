@@ -6,12 +6,14 @@
     }
 
     public function index(){
-      $data=[];
-
-      if (isLoggedIn()){
-        // redirect('pages/chat');
+      if(isLoggedIn()){
+        redirect('chats');
       }
 
+      $data=[];
+
+
+    
       $this->view('pages/index' ,$data);
     }
   }
