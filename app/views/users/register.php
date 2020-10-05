@@ -4,7 +4,7 @@
   <div class="col-md-5 mx-auto">
     <div class="card card-body bg-light mt-5">
       <h2 class="text-center">Registrujte se</h2>
-      <form action="<?php echo URLROOT;?>/users/login" method="POST" class="mt-5"> 
+      <form action="<?php echo URLROOT;?>/users/register" method="POST" class="mt-5"> 
         <div class="form-group">
           <label for="username">Username: <sup>*</sup></label>
           <input type="text" name="username" class="form-control <?php echo(!empty($data['username_err']))?'is-invalid':'';?>">

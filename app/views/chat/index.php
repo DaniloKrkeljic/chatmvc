@@ -8,12 +8,22 @@
     </div>
   </div>
 
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <?php foreach ($data['messages'] as $message) : ?>
-        <p><?php echo '<b>'.ucwords($message->username).'</b> ['.$message->created_at.']:'.$message->text; ?></p>
-      <?php endforeach; ?>
+  <div class="container">
+    <div class="border mb-3">
+    <?php foreach ($data['messages'] as $message) : ?>
+      <p><?php echo '<b>'.ucwords($message->username).'</b> ['.$message->created_at.']: '.$message->text; ?></p>
+    <?php endforeach; ?>
     </div>
+    
+  
+    <form action="<?php echo URLROOT;?>/chats/addMessage" method="POST">
+      <div class="form-group">
+        <input type="text" name="message" class="form-control">
+      </div>
+      <input type="hidden" value="<?php echo $_SESSION['username'];?>" name="username">
+      <input type="submit" value="Posalji" class="btn btn-light btn-inline">
+    </form>
   </div>
+
 
 <?php require APPROOT.'/views/inc/footer.php';?>

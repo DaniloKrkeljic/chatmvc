@@ -29,26 +29,21 @@
           $data['confirm_password_err'] = 'Please confirm password';
         }
 
-        if($this->userModel->findUserByUsername($data['username'])){
-          // User found
-          $this->view('users/register', $data);
-        } else {
-          $data['username_err'] = 'Username not registered.';
+        if($data['password'] != $data['confirm_password']){
+          $data['confirm_password_err'] = 'Passwords don\'t match';
         }
 
-        if (empty($data['name_err']) && empty($data['password_err'])){
-          $loggedInUser = $this->userModel->login($data['username'], $data['password']);
+        if($this->userModel->findUserByUsername($data['username'])){
+          $data['username_err'] = 'User already exists.';
+        }
 
-          if($loggedInUser){
-            $this->createUserSession($loggedInUser);
-          } else {
-            $data['password_err'] = 'Password incorrect';
-
-            $this->view('users/register', $data);
+        if (empty($data['username_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
+          if($this->userModel->register($data['username'], $data['password'])){
+            redirect('pages/index');
           }
         } else {
           // Populate view with errors
-          $this->view('users/login', $data);
+          $this->view('users/register', $data);
         }
       } else {
         $data = [
