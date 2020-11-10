@@ -1,5 +1,4 @@
 # chatmvc
-Chatting app
 
 Basic chatting app with some hashing and cryptographic functions that uses an MVC-like framework built from scratch using vanilla PHP.
 
